@@ -17,7 +17,7 @@ void init(int arr[][V]){
 
 void insertEdge(int arr[][V],int i, int j){
     arr[i][j]=1;
-    arr[j][i]=1;
+     arr[j][i]=1;
 
 }
 
@@ -41,11 +41,20 @@ int main(){
 
     init(adjMatrix);
     
-  insertEdge(adjMatrix, 0, 1);  
-  insertEdge(adjMatrix, 1, 2);  
-  insertEdge(adjMatrix, 2, 1);  
-  insertEdge(adjMatrix, 2, 0);  
-  insertEdge(adjMatrix, 2, 3); 
+//   insertEdge(adjMatrix, 0, 1); 
+//   insertEdge(adjMatrix, 0, 3) ;
+//   insertEdge(adjMatrix, 0, 2) ;
+//   insertEdge(adjMatrix, 2, 1);  
+//   insertEdge(adjMatrix, 2, 0);  
+//   insertEdge(adjMatrix, 1, 2);  
+//   insertEdge(adjMatrix, 1, 0); 
+//   insertEdge(adjMatrix, 3, 0);  
+   insertEdge(adjMatrix, 0, 1);
+  insertEdge(adjMatrix, 0, 2);
+  insertEdge(adjMatrix, 0, 3);
+  insertEdge(adjMatrix, 1, 2);
+
+   
     
     printAdjMatrix(adjMatrix);
     return 0;

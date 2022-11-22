@@ -23,7 +23,7 @@ struct node{
 struct Linked_list{
     node* head;
 
-    /// @brief 
+    
     Linked_list()
     {
         head = new node();
@@ -105,7 +105,7 @@ struct Linked_list{
 int main(){
     int tests; 
     cin>>tests;
-    Linked_list L= new Linked_list();
+    Linked_list L=  Linked_list();
     for (int i = 0; i<tests; i++) {
         string s;
         cin>>s;
