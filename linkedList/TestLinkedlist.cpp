@@ -69,7 +69,7 @@ int main() {
     push(&head, 8);
     
     printAll(head);
-    insertAfter(&midle4,0);
+    insertAfter(midle4,0);
     printAll(head);
     return 0;
 }
