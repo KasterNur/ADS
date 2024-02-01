@@ -1,4 +1,3 @@
-// Online C++ compiler to run C++ program online
 #include <iostream>
 using namespace std;
 
@@ -13,7 +12,11 @@ void insertBfore(Node *thePointer, int value)
 {
     Node* newNode = new Node();
     newNode->data = value;
-    newNode->next = thePointer->prov;
+    Node * tem = new Node();
+    tem = thePointer;
+    thePointer->next = newNode;
+    newNode->next=tem;
+     
     
 }
 
@@ -34,7 +37,8 @@ void push(Node **theP, int value)
 {
     Node *newNode = new Node();
     newNode->data = value;
-    newNode->next = *(theP);
+    newNode->next = *theP;
+    newNode->prov = newNode;
     *(theP) = newNode;
 }
 
@@ -49,14 +53,28 @@ void printAll(Node *theP)
         cout<<theP->data<<"--->";
         theP = theP->next;
     }
-
+    
+    cout<<endl;
+  
 }
 
+void del(Node *theP)
+{
+    Node * tem = new Node();
+    Node * next = new Node();
+   tem = theP;
+   next = theP->next;
+   cout<<"current data="<<theP->data<<" next data="<<next->data<<endl;
+    tem->next = theP->next;
+    delete(tem);
+    tem->next = next->next;
+    
+}
 int main() {
 
 
     Node *head =NULL;
-    
+      
     push(&head, 1);
     push(&head, 2);
     push(&head, 3);
@@ -69,7 +87,12 @@ int main() {
     push(&head, 8);
     
     printAll(head);
-    insertAfter(midle4,0);
+    
+   insertAfter(midle4,0);
+    printAll(head);
+   // insertBfore(midle4,99);
+    //printAll(head);
+    del(midle4);
     printAll(head);
     return 0;
 }
