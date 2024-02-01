@@ -38,8 +38,20 @@ void push(Node **theP, int value)
     Node *newNode = new Node();
     newNode->data = value;
     newNode->next = *theP;
+    cout<<"theP="<<theP<<" *theP"<<*theP<<endl;
     newNode->prov = newNode;
     *(theP) = newNode;
+}
+
+void push1(Node *theP, int value)
+{
+    Node *newNode = new Node();
+    newNode->data = value;
+    // newNode->next = theP;
+    theP->next=newNode;
+   // newNode->prov = newNode;
+    //theP = newNode;
+    cout<<"data ="<<theP->next<<endl;
 }
 
 void printAll(Node *theP)
@@ -62,12 +74,20 @@ void del(Node *theP)
 {
     Node * tem = new Node();
     Node * next = new Node();
-   tem = theP;
+   tem = theP;   // back up 
+   tem->data = theP->data;
+   
    next = theP->next;
+  
    cout<<"current data="<<theP->data<<" next data="<<next->data<<endl;
     tem->next = theP->next;
+
     delete(tem);
-    tem->next = next->next;
+    cout<<theP->data<<endl;
+  
+    theP->next = next->next;
+    theP->data = next->data;
+    cout<<theP->data<<endl;
     
 }
 int main() {
@@ -81,14 +101,14 @@ int main() {
     push(&head, 4);
     Node *midle4 = new Node();
     midle4 = head;
-    push(&head, 5);
-    push(&head, 6);
-    push(&head, 7);
-    push(&head, 8);
+    // push1(head, 5);
+    // push1(head, 6);
+    // push1(head, 7);
+    // push1(head, 8);
     
     printAll(head);
     
-   insertAfter(midle4,0);
+   insertAfter(midle4,88);
     printAll(head);
    // insertBfore(midle4,99);
     //printAll(head);
